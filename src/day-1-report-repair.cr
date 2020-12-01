@@ -15,5 +15,8 @@ OptionParser.parse do |parser|
 end
 
 unless file_name.empty?
-  puts "filename: #{file_name}"
+  values_str = File.read_lines(file_name)
+  values_int = Array(Int32).new
+  iter = values_str.each
+  iter.each {|x| values_int << x.to_i}
 end
