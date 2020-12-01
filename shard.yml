@@ -1,0 +1,13 @@
+name: day-1-report-repair
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  day-1-report-repair:
+    main: src/day-1-report-repair.cr
+
+crystal: 0.35.1
+
+license: MIT
