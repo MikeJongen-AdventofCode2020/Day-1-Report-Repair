@@ -23,27 +23,36 @@ unless file_name.empty?
   values_int = Array(Int32).new
   values_str.each {|x| values_int << x.to_i}
   
-  index = 0
   if triple
-    index2 = 0
-    values_int[0,values_str.size].each do |y|
-      values_int[index,values_str.size].each do |x|
-        values_int[index2,values_str.size].each do |z|
-          if (y + x + z) == 2020
-            puts y * x * z
-          end
-        end
-      end
-      index += 1
-    end
+    product_3_if_sum_equals(values_int)
   else
-    values_int[0,values_str.size].each do |y|
-      values_int[index,values_str.size].each do |x|
-        if (y + x) == 2020
-          puts y * x
+    product_2_if_sum_equals(values_int)
+  end
+end
+
+def product_2_if_sum_equals(values : Array(Int32))
+  index = 0
+  values[0,values.size].each do |y|
+    values[index,values.size].each do |x|
+      if (y + x) == 2020
+        puts y * x
+      end
+    end
+    index += 1
+  end
+end
+
+def product_3_if_sum_equals(values : Array(Int32))
+  index = 0
+  index2 = 0
+  values[0,values.size].each do |y|
+    values[index,values.size].each do |x|
+      values[index2,values.size].each do |z|
+        if (y + x + z) == 2020
+          puts y * x * z
         end
       end
-      index += 1
     end
+    index += 1
   end
 end
